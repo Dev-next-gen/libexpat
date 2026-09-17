@@ -630,9 +630,7 @@ END_TEST
 // Inspired by function XML_OriginalString of Perl's XML::Parser
 static char *
 dup_original_string(XML_Parser parser) {
-  const int byte_count = XML_GetCurrentByteCount(parser);
-
-  assert_true(byte_count >= 0);
+  const uint64_t byte_count = XML_GetCurrentByteCount64(parser);
 
   int64_t offset64 = -1;
   uint64_t size64 = UINT64_MAX;
